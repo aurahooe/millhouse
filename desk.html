@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Desk — Millhouse</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+  <header class="top">
+    <a class="mark" href="./">Millhouse</a>
+    <nav>
+      <a href="./#wall">Wall</a>
+      <a href="./desk.html" aria-current="page">Desk</a>
+      <button id="authBtn" class="ghost" type="button">Sign in</button>
+    </nav>
+  </header>
+  <main class="desk">
+    <section class="composer">
+      <h1>The desk</h1>
+      <p class="lede">Drafts stay here. Tick public and they go on the wall.</p>
+      <form id="noteForm">
+        <label>Title<input name="title" maxlength="120" required placeholder="A short line" /></label>
+        <label>Slip<textarea name="body" maxlength="8000" required rows="8" placeholder="What you actually mean."></textarea></label>
+        <label class="check"><input name="is_public" type="checkbox" /> Mark public</label>
+        <button class="btn" type="submit">Save slip</button>
+        <p id="saveMsg" class="msg"></p>
+      </form>
+    </section>
+    <section>
+      <div class="section-head"><h2>Your slips</h2></div>
+      <div id="mine" class="cards"></div>
+    </section>
+  </main>
+  <dialog id="authModal" class="sheet">
+    <form id="authForm" method="dialog">
+      <h3>Come in</h3>
+      <p class="hint">Email and a password. Private slips never leave this desk.</p>
+      <label>Email<input name="email" type="email" required autocomplete="email" /></label>
+      <label>Password<input name="password" type="password" required minlength="8" autocomplete="current-password" /></label>
+      <div class="row">
+        <button type="submit" name="mode" value="in" class="btn">Sign in</button>
+        <button type="submit" name="mode" value="up" class="ghost">Create account</button>
+      </div>
+      <p id="authMsg" class="msg"></p>
+    </form>
+  </dialog>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="./app.js"></script>
+</body>
+</html>
